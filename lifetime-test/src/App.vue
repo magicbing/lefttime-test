@@ -58,7 +58,7 @@
             </div>
           </div>
           <div class="layout-copy">
-            2011-2016 &copy; test
+            2011-2016 &copy; test {{year}}
           </div>
         </i-col>
       </Row>
@@ -71,12 +71,17 @@ export default {
   name: 'app',
   data () {
       return {
-          
+          year: ''
       }
   },
   methods: {
 
+  },
+  created: function () {
+    var a = new Date()
+    this.year = a.getFullYear()
   }
+  
 }
 </script>
 

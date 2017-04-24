@@ -104,7 +104,7 @@ export default {
   },
   //启动json-server --watch
   mounted: function () {
-    axios.get('http://localhost:3000/posts/1')
+    axios.get('http://mockjs.cn')
     .then(function (response) {
       console.table('response: ' + response.data);
       //console.log('response: ' + JSON.stringify(response));

@@ -13,7 +13,8 @@ import 'iview/dist/styles/iview.css'
 // Vue.use(VueResource)
 
 import axios from 'axios'
-Vue.use(axios)
+//Vue.use(axios)
+
 //Vue.prototype.$http = axios
 // import VueAxios from 'vue-axios'
 // Vue.use(VueAxios, axios)
