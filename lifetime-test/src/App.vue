@@ -13,8 +13,10 @@
             <div class="layout-logo-left"></div>
             <Submenu name="1">
               <template slot="title">
-                <Icon type="ios-navigate"></Icon>
-                首页
+                <router-link to="/">
+                  <Icon type="ios-navigate"></Icon>
+                  首页
+                </router-link>
               </template>
               <router-link to="/"><Menu-item name="1-1">去首页</Menu-item></router-link>
             </Submenu>
@@ -71,7 +73,7 @@ export default {
   name: 'app',
   data () {
       return {
-          year: ''
+          //year: ''
       }
   },
   methods: {
@@ -79,7 +81,7 @@ export default {
   },
   created: function () {
     var a = new Date()
-    this.year = a.getFullYear()
+    this.year = a.getFullYear() 
   }
   
 }
