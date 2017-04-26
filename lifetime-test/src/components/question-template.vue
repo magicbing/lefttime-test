@@ -77,7 +77,7 @@
     </Tooltip>
     <router-link v-if="$store.state[$route.params.id].score[$store.state[$route.params.id].value] && $route.params.id == 17 "
                  to="/result">
-      <Button type="success">{{$route.params.id}}</Button>
+      <Button type="success" @click="dbbtn()">{{$route.params.id}}</Button>
     </router-link>
   </div>
 </template>
@@ -85,6 +85,8 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import router from '../router/index.js'
+// import low from 'lowdb'
+// const db = low('db')
 
 export default {
   name: 'template',
@@ -147,6 +149,11 @@ export default {
         desc: nodesc ? '' : '下一题desc'
       });
     },
+    dbbtn: function(){
+      console.log('dbbtn()')
+      // db.defaults({ score: [] }).write()
+      // console.log('dbbtn()2')
+    }
   }
 }
 </script>
