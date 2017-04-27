@@ -4,3 +4,4 @@ export default Mock.mock('http://mockjs.cn', {
   'age|1-100': '100',
   'color': '@color'
 })
+// json-server mock
