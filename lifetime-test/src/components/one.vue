@@ -5,6 +5,14 @@
            :data="data6"
            size="small"></Table>
   
+    <mu-paper style="max-width: 999px; ">
+      <mu-bottom-nav :value="bottomNav" shift @change="handleChange">
+        <mu-bottom-nav-item value="movies" title="Movies" icon="ondemand_video"/>
+        <mu-bottom-nav-item value="music" title="Music" icon="music_note"/>
+        <mu-bottom-nav-item value="books" title="Books" icon="books"/>
+        <mu-bottom-nav-item value="pictures" title="Pictures" icon="photo"/>
+      </mu-bottom-nav>
+    </mu-paper>
   </div>
 </template>
 
@@ -16,6 +24,8 @@ export default {
   name: 'one1',
   data() {
     return {
+      bottomNav: 'movies',
+      bottomNavColor: 'movies',
       msg: '111',
       q1value: '1',
       columns1: [
@@ -92,6 +102,9 @@ export default {
     }
   },
   methods: {
+    handleChange (val) {
+      this.bottomNav = val
+    },
     show(index) {
       this.$Modal.info({
         title: '用户信息',
