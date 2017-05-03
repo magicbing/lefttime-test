@@ -12,7 +12,7 @@
            class=""
            @change="valueChange();">
   
-        <Radio-group v-model="$store.state[$route.params.id].value"
+        <!--<Radio-group v-model="$store.state[$route.params.id].value"
                      vertical>
           <Radio label="0">
             <span>{{$store.state[$route.params.id].option[0]}}</span>
@@ -32,9 +32,9 @@
                  v-if="$store.state[$route.params.id].option[4]">
             <span>{{$store.state[$route.params.id].option[4]}}</span>
           </Radio>
-        </Radio-group>
+        </Radio-group>-->
   
-        <!--<input type="radio"
+        <input type="radio"
                          id="0"
                          value="0"
                          v-model="$store.state[$route.params.id].value">
@@ -60,7 +60,7 @@
                     <input type="radio" id="4" value="4" v-model="$store.state[$route.params.id].value">
                     <label for="4">{{$store.state[$route.params.id].option[4]}}</label>
                     <br>
-                    </span>-->
+                    </span>
   
         <div>score
           <Icon type="ionic"></Icon> : {{ $store.state[$route.params.id].score[$store.state[$route.params.id].value] }}</div>
