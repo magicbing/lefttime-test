@@ -5,8 +5,8 @@ import App from './App'
 import router from './router'
 import store from './store'
 
-import iView from 'iview'
-import 'iview/dist/styles/iview.css'
+// import iView from 'iview'
+// import 'iview/dist/styles/iview.css'
 
 // import VueResource from 'vue-resource'
 
@@ -19,7 +19,7 @@ import axios from 'axios'
 // import VueAxios from 'vue-axios'
 // Vue.use(VueAxios, axios)
 
-Vue.use(iView)
+// Vue.use(iView)
 
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'

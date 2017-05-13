@@ -2,7 +2,7 @@
   <div id="app">
     <!--<router-link to="/"><img src="./assets/logo.png"></router-link>-->
     <!--<router-link to="/">Router->/</router-link>-->
-    <div class="layout">
+    <!--<div class="layout">
       <Row type="flex">
         <i-col span="5"
                class="layout-menu-left">
@@ -42,7 +42,7 @@
             <div v-if="$route.params.id">
             <Steps :current=" parseInt($route.params.id) ">
               <Step v-for="n in 18" :key="n" :title=" 'q' + n ">
-                <!--<router-link :to="{ name: 'question', params: { id: n }}"></router-link>-->
+                <router-link :to="{ name: 'question', params: { id: n }}"></router-link>
               </Step>
             </Steps>
             </div>
@@ -51,7 +51,7 @@
             <Breadcrumb>
               <Breadcrumb-item href="#">首页</Breadcrumb-item>
               <Breadcrumb-item href="#">应用中心</Breadcrumb-item>
-              <Breadcrumb-item>某应用</Breadcrumb-item>
+              <Breadcrumb-item>某应用</Breadcrumb-item> 
             </Breadcrumb>
           </div>
           <div class="layout-content">
@@ -64,7 +64,8 @@
           </div>
         </i-col>
       </Row>
-    </div>
+    </div>-->
+    <router-view></router-view>
   </div>
 </template>
 

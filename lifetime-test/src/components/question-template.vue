@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ routerId }}</h1>
     <h2>route.params.id: {{ $route.params.id }}</h2>
-    <h2>state: {{ $store.state[$route.params.id] }}</h2>
+    <!-- <h2>state: {{ $store.state[$route.params.id] }}</h2> -->
   
     <form @keyup.esc="nextpage($route.params.id);nextQClick(true);"
           @keyup.space="muta">
@@ -62,22 +62,19 @@
                     <br>
                     </span>
   
-        <div>score
-          <Icon type="ionic"></Icon> : {{ $store.state[$route.params.id].score[$store.state[$route.params.id].value] }}</div>
+        <div>score: {{ $store.state[$route.params.id].score[$store.state[$route.params.id].value] }}</div>
         <div>total: {{ $store.state.total.score }}</div>
       </div>
       <!--q1value: {{ $store.state[$route.params.id].value }} addon: {{ $store.state[0].score[$store.state[0].value] + $store.state[1].score[$store.state[1].value] }}-->
     </form>
-    <Tooltip content="下一题">
-      <router-link v-if="$store.state[$route.params.id].score[$store.state[$route.params.id].value] && $route.params.id < 17 "
-                   :to="{ name: 'question', params: { id: (parseInt($route.params.id) + 1) }}">
-        <Button type="info"
-                @click="nextQClick(true)">{{$route.params.id}}</Button>
-      </router-link>
-    </Tooltip>
+    <router-link v-if="$store.state[$route.params.id].score[$store.state[$route.params.id].value] && $route.params.id < 17 "
+                 :to="{ name: 'question', params: { id: (parseInt($route.params.id) + 1) }}">
+      <Button @click="nextQClick(true)">{{$route.params.id}}</Button>
+      <mu-raised-button v-bind:label="'下一题' +　$route.params.id" class="demo-raised-button" primary/>
+    </router-link>
     <router-link v-if="$store.state[$route.params.id].score[$store.state[$route.params.id].value] && $route.params.id == 17 "
                  to="/result">
-      <Button type="success">{{$route.params.id}}</Button>
+      <Button>{{$route.params.id}}</Button>
     </router-link>
   </div>
 </template>
