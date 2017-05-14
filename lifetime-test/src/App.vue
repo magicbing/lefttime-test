@@ -66,6 +66,14 @@
       </Row>
     </div>-->
     <router-view></router-view>
+
+    <mu-paper style="position: fixed;bottom: 0;width: 100%;">
+      <mu-bottom-nav :value="bottomNav" @change="handleChange">
+        <mu-bottom-nav-item to="/" value="recents" title="Recents" icon="home"/>
+        <mu-bottom-nav-item to="/question/0" value="favorites" title="question" icon="favorite"/>
+        <mu-bottom-nav-item to="/result" value="nearby" title="result" icon="location_on"/>
+      </mu-bottom-nav>
+    </mu-paper>
   </div>
 </template>
 
@@ -74,11 +82,14 @@ export default {
   name: 'app',
   data () {
       return {
-          //year: ''
+        //year: ''
+        bottomNav: 'recents'
       }
   },
   methods: {
-
+    handleChange (val) {
+      this.bottomNav = val
+    }
   },
   created: function () {
     var a = new Date()

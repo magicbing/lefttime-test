@@ -36,7 +36,7 @@ const mutations = {
       totalvalue += _state.score[_state.value]
     }
     //state.count++
-    state.total.score = totalvalue
+    state.total.score = totalvalue || 0
 
     console.log('totalvalue: ' + totalvalue )
 

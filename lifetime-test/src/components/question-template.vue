@@ -69,12 +69,13 @@
     </form>
     <router-link v-if="$store.state[$route.params.id].score[$store.state[$route.params.id].value] && $route.params.id < 17 "
                  :to="{ name: 'question', params: { id: (parseInt($route.params.id) + 1) }}">
-      <Button @click="nextQClick(true)">{{$route.params.id}}</Button>
+      <!--<Button @click="nextQClick(true)">{{$route.params.id}}</Button>-->
       <mu-raised-button v-bind:label="'下一题' +　$route.params.id" class="demo-raised-button" primary/>
     </router-link>
     <router-link v-if="$store.state[$route.params.id].score[$store.state[$route.params.id].value] && $route.params.id == 17 "
                  to="/result">
-      <Button>{{$route.params.id}}</Button>
+      <!--<Button>{{$route.params.id}}</Button>-->
+      <mu-raised-button v-bind:label="'查看结果' +　$route.params.id" class="demo-raised-button" primary/>
     </router-link>
   </div>
 </template>
@@ -89,27 +90,7 @@ export default {
     return {
       msg: 'template',
       routerId: this.$route.params.id,
-      columns1: [
-        {
-          title: 'value',
-          key: 'name'
-        },
-        {
-          title: 'score',
-          key: 'age'
-        },
-        {
-          title: 'title',
-          key: 'address'
-        }
-      ],
-      data1: [
-        {
-          name: this.$store.state[this.$route.params.id].value,
-          age: this.$store.state[this.$route.params.id].score,
-          address: this.$store.state[this.$route.params.id].title
-        }
-      ]
+
     }
   },
   // methods: mapActions([
@@ -126,13 +107,6 @@ export default {
       } else {
         router.push({ name: 'result' })
       }
-      this.data1 = [
-        {
-          name: this.$store.state[this.$route.params.id].value,
-          age: this.$store.state[this.$route.params.id].score,
-          address: this.$store.state[this.$route.params.id].title
-        }
-      ]
     },
     ...mapActions([
       'valueChange',
