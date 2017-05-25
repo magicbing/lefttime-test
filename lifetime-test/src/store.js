@@ -25,7 +25,9 @@ const state = {
   17: { value: '', score: [+2, -3], option: ['a.有（+2）；', 'b.没有（-3）' ], title: '18.你父母有活到90岁以上的' },
 
   total: {score: ''},
-  count: 0
+  count: 0,
+  bottomNav: 'recents',
+  linearProgress: 10
 }
 
 const mutations = {

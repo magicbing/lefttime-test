@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{ routerId }}</h1>
+    <mu-linear-progress mode="determinate" :max="18" :value="parseInt($route.params.id)"/>
+    <!--<h1>{{ routerId }}</h1>-->
     <h2>route.params.id: {{ $route.params.id }}</h2>
     <!-- <h2>state: {{ $store.state[$route.params.id] }}</h2> -->
   
@@ -72,11 +73,16 @@
       <!--<Button @click="nextQClick(true)">{{$route.params.id}}</Button>-->
       <mu-raised-button v-bind:label="'下一题' +　$route.params.id" class="demo-raised-button" primary/>
     </router-link>
-    <router-link v-if="$store.state[$route.params.id].score[$store.state[$route.params.id].value] && $route.params.id == 17 "
-                 to="/result">
+    
+    <router-link v-else-if="$store.state[$route.params.id].score[$store.state[$route.params.id].value] && $route.params.id == 17 "
+                 to="/result"
+                 v-on:click.native="gotoResult()">
       <!--<Button>{{$route.params.id}}</Button>-->
       <mu-raised-button v-bind:label="'查看结果' +　$route.params.id" class="demo-raised-button" primary/>
     </router-link>
+
+    <mu-raised-button v-else-if="$route.params.id == 17" v-bind:label="'查看结果' +　$route.params.id" class="demo-raised-button" disabled/>
+    <mu-raised-button v-else v-bind:label="'下一题' +　$route.params.id" class="demo-raised-button" disabled/>
   </div>
 </template>
 
@@ -89,7 +95,7 @@ export default {
   data() {
     return {
       msg: 'template',
-      routerId: this.$route.params.id,
+      //routerId: this.$route.params.id,
 
     }
   },
@@ -101,7 +107,6 @@ export default {
   // }
   methods: {
     nextpage: function (ev) {
-      console.log('123' + this.data1)
       if (ev < 17) {
         router.push({ name: 'question', params: { id: (parseInt(ev) + 1) } })
       } else {
@@ -118,12 +123,18 @@ export default {
         desc: nodesc ? '' : '下一题desc'
       });
     },
+    gotoResult: function () {
+      this.$store.state.bottomNav = 'result'
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.hello {
+  margin-bottom: 70px;
+}
 h1,
 h2 {
   font-weight: normal;

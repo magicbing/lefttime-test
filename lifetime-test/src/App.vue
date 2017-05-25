@@ -68,10 +68,10 @@
     <router-view></router-view>
 
     <mu-paper style="position: fixed;bottom: 0;width: 100%;">
-      <mu-bottom-nav :value="bottomNav" @change="handleChange">
+      <mu-bottom-nav :value="$store.state.bottomNav" @change="handleChange">
         <mu-bottom-nav-item to="/" value="recents" title="Recents" icon="home"/>
-        <mu-bottom-nav-item to="/question/0" value="favorites" title="question" icon="favorite"/>
-        <mu-bottom-nav-item to="/result" value="nearby" title="result" icon="location_on"/>
+        <mu-bottom-nav-item to="/question/0" value="question" title="question" icon="favorite"/>
+        <mu-bottom-nav-item to="/result" value="result" title="result" icon="location_on"/>
       </mu-bottom-nav>
     </mu-paper>
   </div>
@@ -83,12 +83,12 @@ export default {
   data () {
       return {
         //year: ''
-        bottomNav: 'recents'
+        bottomNav: this.$store.state.bottomNav
       }
   },
   methods: {
     handleChange (val) {
-      this.bottomNav = val
+      this.$store.state.bottomNav = val
     }
   },
   created: function () {

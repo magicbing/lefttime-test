@@ -20,7 +20,7 @@
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>-->
     <router-link to="/one">Go to 1</router-link>
-    <router-link to="/question/0">Go to question</router-link>
+    <router-link v-on:click.native="gotoQuestion0()" to="/question/0">Go to question</router-link>
   </div>
 </template>
 
@@ -30,6 +30,11 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    gotoQuestion0: function (params) {
+      this.$store.state.bottomNav = 'question'
     }
   }
 }
