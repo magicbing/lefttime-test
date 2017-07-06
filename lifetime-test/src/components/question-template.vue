@@ -5,7 +5,7 @@
     <h2>route.params.id: {{ $route.params.id }}</h2>
     <!-- <h2>state: {{ $store.state[$route.params.id] }}</h2> -->
   
-    <form @keyup.esc="nextpage($route.params.id);nextQClick(true);"
+    <form @keyup.esc="nextpage($route.params.id);"
           @keyup.space="muta">
       <label>{{ $store.state[$route.params.id].title }}</label>
       <p>mutat: {{$store.state.count}}</p>
@@ -64,7 +64,7 @@
                     </span>
   
         <div>score: {{ $store.state[$route.params.id].score[$store.state[$route.params.id].value] }}</div>
-        <div>total: {{ $store.state.total.score }}</div>
+        <!--<div>total: {{ $store.state.total.score }}</div>-->
       </div>
       <!--q1value: {{ $store.state[$route.params.id].value }} addon: {{ $store.state[0].score[$store.state[0].value] + $store.state[1].score[$store.state[1].value] }}-->
     </form>
@@ -117,12 +117,12 @@ export default {
       'valueChange',
       'muta'
     ]),
-    nextQClick: function (nodesc) {
-      this.$Notice.success({
-        title: '下一题q' + this.$route.params.id,
-        desc: nodesc ? '' : '下一题desc'
-      });
-    },
+    // nextQClick: function (nodesc) {
+    //   this.$Notice.success({
+    //     title: '下一题q' + this.$route.params.id,
+    //     desc: nodesc ? '' : '下一题desc'
+    //   });
+    // },
     gotoResult: function () {
       this.$store.state.bottomNav = 'result'
     }

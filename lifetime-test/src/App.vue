@@ -65,13 +65,15 @@
         </i-col>
       </Row>
     </div>-->
-    <router-view></router-view>
+    <transition :name="transitionName">
+      <router-view></router-view>
+    </transition>
 
     <mu-paper style="position: fixed;bottom: 0;width: 100%;">
       <mu-bottom-nav :value="$store.state.bottomNav" @change="handleChange">
         <mu-bottom-nav-item to="/" value="recents" title="Recents" icon="home"/>
         <mu-bottom-nav-item to="/question/0" value="question" title="question" icon="favorite"/>
-        <mu-bottom-nav-item to="/result" value="result" title="result" icon="location_on"/>
+        <mu-bottom-nav-item to="/result" value="result" title="result" icon="location_on" />
       </mu-bottom-nav>
     </mu-paper>
   </div>
@@ -83,7 +85,8 @@ export default {
   data () {
       return {
         //year: ''
-        bottomNav: this.$store.state.bottomNav
+        bottomNav: this.$store.state.bottomNav,
+        transitionName: 'slide-left'
       }
   },
   methods: {
@@ -100,12 +103,18 @@ export default {
 </script>
 
 <style>
+.slide-left-enter-active, .slide-left-leave-active {
+  transition: opacity .5s
+}
+.slide-left-enter, .slide-left-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #ddd;
   margin-top: 0px;
   font-size: 20px;
 }

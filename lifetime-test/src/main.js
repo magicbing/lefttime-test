@@ -23,6 +23,7 @@ import axios from 'axios'
 
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
+import 'muse-ui/dist/theme-dark.css'
 Vue.use(MuseUI)
 
 Vue.config.productionTip = false
