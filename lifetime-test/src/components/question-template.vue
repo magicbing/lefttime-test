@@ -8,10 +8,10 @@
     <form @keyup.esc="nextpage($route.params.id);"
           @keyup.space="muta">
       <label>{{ $store.state[$route.params.id].title }}</label>
-      <p>mutat: {{$store.state.count}}</p>
+      <p>muta: {{$store.state.count}}</p>
       <div id=""
            class=""
-           @change="valueChange();">
+           @change="valueChange()">
   
         <!--<Radio-group v-model="$store.state[$route.params.id].value"
                      vertical>
